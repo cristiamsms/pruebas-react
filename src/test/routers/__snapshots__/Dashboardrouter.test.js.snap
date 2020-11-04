@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pruebas en el dashboard prueba 1 1`] = `
+<Fragment>
+  <Navbar />
+  <div
+    className="container mt-4 ml-4"
+  >
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/marvel"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/hero/:heroeId"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/dc"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/Search"
+      />
+      <Redirect
+        to="/marvel"
+      />
+    </Switch>
+  </div>
+</Fragment>
+`;
