@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`pruebas en el app router prueba 1 1`] = `
+exports[`Pruebas en <AppRouter /> debe de mostrar login si no está autenticado 1`] = `
 <div>
   <div
     className="container mt-5"
   >
     <h1>
-      login
+      Login
     </h1>
     <hr />
     <button

@@ -1,44 +1,52 @@
-const { mount } = require("enzyme")
 import React from 'react';
-import { AuthContext } from '../../auth/AuthContext';
+import { mount } from 'enzyme';
 import { AppRouter } from '../../routers/AppRouter';
-describe('pruebas en el app router', () => {
+import { AuthContext } from '../../auth/AuthContext';
+
+describe('Pruebas en <AppRouter />', () => {
     
-    const value ={
+    const contextValue = {
         dispatch: jest.fn(),
-        user:{logged:false}
-    }
-    
-    test('prueba 1', () => {
-
-       const wrapper=mount(
-           <AuthContext.Provider value={value}>
-  
-            <AppRouter/>
-
-           </AuthContext.Provider>
-         
-       )
-        expect(wrapper).toMatchSnapshot();
-    });
-    test('prueba 2', () => {
-        const value ={
-            dispatch: jest.fn(),
-            user:{logged:true,
-            name:'cristian'}
+        user: {
+            logged: false
         }
+    }
+
+
+    test('debe de mostrar login si no está autenticado', () => {
+        
+        const wrapper = mount(
+            <AuthContext.Provider value={ contextValue }>
+                <AppRouter />
+            </AuthContext.Provider>
+        );
+
+        expect( wrapper ).toMatchSnapshot();
+        
+    });
+
+
+    test('debe de mostrar el componente marvel si está autenticado', () => {
+        
+        const contextValue = {
+            dispatch: jest.fn(),
+            user: {
+                logged: true,
+                name: 'Juan'
+            }
+        }
+
+        const wrapper = mount(
+            <AuthContext.Provider value={ contextValue }>
+                <AppRouter />
+            </AuthContext.Provider>
+        );
+
+        expect( wrapper.find('.navbar').exists() ).toBe(true);
         
 
-        const wrapper=mount(
-           <AuthContext.Provider value={value}>
-  
-            <AppRouter/>
-
-           </AuthContext.Provider>
-         
-       )
-        expect(wrapper.find('.navbar').exists()).toBe(true);
     })
     
     
+
 })
